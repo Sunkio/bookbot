@@ -2,7 +2,7 @@ def count_words():
     with open("./books/frankenstein.txt") as f:
         file_contents = f.read()
     words = file_contents.split()
-    print(len(words))
+    return len(words)
 
 def count_letters():
     letter_dic = {}
@@ -14,11 +14,25 @@ def count_letters():
                     letter_dic[c] += 1
                 else:
                     letter_dic[c] = 1
-    print(letter_dic)
-        
+    return letter_dic
+
+def sort_chars(char_dic):
+    sort_dic = []
+    temp_dic = [(k,v) for k,v in char_dic.items()]
+    sort_dic = sorted(temp_dic, key=lambda tup:tup[1], reverse=True)
+    return sort_dic
+
+def print_letter_count(total_letters):
+    for i, t  in enumerate(total_letters):
+        if t[0].isalpha():
+            print(f"The '{t[0]}' character was found {t[1]} times")
+
 def main():
-    count_words()
-    count_letters()
+    total_words = count_words()
+    print(f'--- Begin report of books/text ---\n{total_words} words found in the document\n')
+    total_letters = sort_chars(count_letters())
+    print_letter_count(total_letters)
+    print("--- End report ---")
 
 main()
 
