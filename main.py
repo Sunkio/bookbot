@@ -1,8 +1,6 @@
 import glob
 import fnmatch
 
-path = './texts/*.*'
-
 def count_words(file_contents):
     words = file_contents.split()
     return len(words)
@@ -30,6 +28,7 @@ def print_letter_count(total_letters):
             print(f"The '{t[0]}' character was found {t[1]} times")
 
 def main():
+    path = './texts/*.*'
     for filename in glob.glob(path):
         if (fnmatch.fnmatch(filename, '*.txt') or fnmatch.fnmatch(filename, '*.docx') or fnmatch.fnmatch(filename, '*.odt') or 
             fnmatch.fnmatch(filename, '*.pdf') or fnmatch.fnmatch(filename, '*.md') or fnmatch.fnmatch(filename, '*.rtf') or
