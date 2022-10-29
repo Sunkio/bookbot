@@ -1,13 +1,18 @@
+import glob
+path = "./books/*.txt"
+
 def count_words():
-    with open("./books/frankenstein.txt") as f:
-        file_contents = f.read()
+    for filename in glob.glob(path):
+        with open(filename, 'r') as f:
+            file_contents = f.read()
     words = file_contents.split()
     return len(words)
 
 def count_letters():
     letter_dic = {}
-    with open("./books/frankenstein.txt") as f:
-        file_contents = f.read().lower()
+    for filename in glob.glob(path):
+        with open("./books/frankenstein.txt") as f:
+            file_contents = f.read().lower()
         for line  in  file_contents:
             for c in line:
                 if c in letter_dic:
