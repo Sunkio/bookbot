@@ -1,11 +1,7 @@
 import glob
 import fnmatch
-path = './books/*.*'
-#def create_file_list():
- #   types = ('./books/*.txt', './books/*.docx')
-  #  files_grabbed = []
-   # for files in types:
-    #    files_grabbed.extend(glob.glob(files)
+
+path = './texts/*.*'
 
 def count_words(file_contents):
     words = file_contents.split()
@@ -35,16 +31,17 @@ def print_letter_count(total_letters):
 
 def main():
     for filename in glob.glob(path):
-        if fnmatch.fnmatch(filename, '*.txt') or fnmatch.fnmatch(filename, '*.docx') or fnmatch.fnmatch(filename, '*.odt') or \
-            fnmatch.fnmatch(filename, '*.pdf') or fnmatch.fnmatch(filename, '*.md') or fnmatch.fnmatch(filename, '*.rtf') or \
-            fnmatch.fnmatch(filename, '*mdx') or fnmatch.fnmatch(filename, '*.html'):
+        if (fnmatch.fnmatch(filename, '*.txt') or fnmatch.fnmatch(filename, '*.docx') or fnmatch.fnmatch(filename, '*.odt') or 
+            fnmatch.fnmatch(filename, '*.pdf') or fnmatch.fnmatch(filename, '*.md') or fnmatch.fnmatch(filename, '*.rtf') or
+            fnmatch.fnmatch(filename, '*mdx') or fnmatch.fnmatch(filename, '*.html')):
             with open(filename, 'r') as f:
                 file_contents = f.read()
             total_words = count_words(file_contents)
-            print(f'--- Begin report of books/text ---\n{total_words} words found in the document\n')
+            print_name = filename[8:]
+            print(f'--- Begin report of {print_name} ---\n{total_words} words found in the document\n')
             total_letters = sort_chars(count_letters(file_contents))
             print_letter_count(total_letters)
-            print("--- End report ---")
+            print(f'--- End report of {print_name} ---\n')
 
 main()
 
