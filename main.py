@@ -1,24 +1,25 @@
 import glob
-path = "./books/*.txt"
+import fnmatch
+path = './books/*.*'
+#def create_file_list():
+ #   types = ('./books/*.txt', './books/*.docx')
+  #  files_grabbed = []
+   # for files in types:
+    #    files_grabbed.extend(glob.glob(files)
 
-def count_words():
-    for filename in glob.glob(path):
-        with open(filename, 'r') as f:
-            file_contents = f.read()
+def count_words(file_contents):
     words = file_contents.split()
     return len(words)
 
-def count_letters():
+def count_letters(file_contents):
     letter_dic = {}
-    for filename in glob.glob(path):
-        with open("./books/frankenstein.txt") as f:
-            file_contents = f.read().lower()
-        for line  in  file_contents:
-            for c in line:
-                if c in letter_dic:
-                    letter_dic[c] += 1
-                else:
-                    letter_dic[c] = 1
+    contents_lowered = file_contents.lower()
+    for line  in  contents_lowered:
+        for c in line:
+            if c in letter_dic:
+                letter_dic[c] += 1
+            else:
+                letter_dic[c] = 1
     return letter_dic
 
 def sort_chars(char_dic):
@@ -33,11 +34,17 @@ def print_letter_count(total_letters):
             print(f"The '{t[0]}' character was found {t[1]} times")
 
 def main():
-    total_words = count_words()
-    print(f'--- Begin report of books/text ---\n{total_words} words found in the document\n')
-    total_letters = sort_chars(count_letters())
-    print_letter_count(total_letters)
-    print("--- End report ---")
+    for filename in glob.glob(path):
+        if fnmatch.fnmatch(filename, '*.txt') or fnmatch.fnmatch(filename, '*.docx') or fnmatch.fnmatch(filename, '*.odt') or \
+            fnmatch.fnmatch(filename, '*.pdf') or fnmatch.fnmatch(filename, '*.md') or fnmatch.fnmatch(filename, '*.rtf') or \
+            fnmatch.fnmatch(filename, '*mdx') or fnmatch.fnmatch(filename, '*.html'):
+            with open(filename, 'r') as f:
+                file_contents = f.read()
+            total_words = count_words(file_contents)
+            print(f'--- Begin report of books/text ---\n{total_words} words found in the document\n')
+            total_letters = sort_chars(count_letters(file_contents))
+            print_letter_count(total_letters)
+            print("--- End report ---")
 
 main()
 
