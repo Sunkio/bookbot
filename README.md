@@ -1,6 +1,7 @@
 # Bookbot
 Python CLI tool  to analyze the word count and letter usage in text files. Be it a simple note, a long essay, or a full fledged novel - analyze texts of all sorts and lengths!
-![GitHub](https://img.shields.io/github/license/sunkio/bookbot)
+
+<!-- ![GitHub](https://img.shields.io/github/license/sunkio/bookbot) -->
 
 ## Details
 The program creates a report with the word count from each file as well as a list of letters in that file from the English alphabet and the amount of their occurrences in descending order. See below for a [[2022-10-29-12-50_README_Bookbot_python#Sample Terminal Output|sample output]].
