@@ -4,7 +4,7 @@ Python CLI tool  to analyze the word count and letter usage in text files. Be it
 <!-- ![GitHub](https://img.shields.io/github/license/sunkio/bookbot) -->
 
 ## Details
-The program creates a report with the word count from each file as well as a list of letters in that file from the English alphabet and the amount of their occurrences in descending order. See below for a [[2022-10-29-12-50_README_Bookbot_python#Sample Terminal Output|sample output]].
+The program creates a report with the word count from each file as well as a list of letters in that file from the English alphabet and the amount of their occurrences in descending order. See below for a [sample output](#sample-terminal-output).
 
 ## Installing / Getting started
 Requires python3.7+
@@ -21,7 +21,7 @@ git clone https://github.com/YOUR-USERNAME/bookbot
 cd bookbot
 mv PATH-TO-YOUR-TEXTFILE /texts
 ```
-You can add as many files as you like - they will be analyzed at once in alphabetical order. Please check the supported file types below. 
+You can add as many files as you like - they will be analyzed in one go and be presented in alphabetical order. Please check the [supported file types](#supported-file-types) below. 
 
 ### Supported file types
 Currently, the following file types are supported:
@@ -43,7 +43,7 @@ Enjoy!
 
 ## Sample Terminal Output
 
-![[Bildschirmfoto 2022-10-29 um 17.21.27.jpg]]
+![Sample Terminal Output](./resources/bookbot_sample-terminal-output_screenshot.jpg)
 
 ## How to Contribute
 Contributions are always welcome! Please check the [Code of Conduct](https://github.com/Sunkio/.github/CODE_OF_CONDUCT.md) .
